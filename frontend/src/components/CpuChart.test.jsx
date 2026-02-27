@@ -1,7 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { useStats } from '../context/StatsContext';
-import { useTheme } from '../context/ThemeContext';
 import CpuChart from './CpuChart';
 
 vi.mock('../context/StatsContext', () => ({
