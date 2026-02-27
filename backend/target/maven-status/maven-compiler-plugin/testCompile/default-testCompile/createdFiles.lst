@@ -1,0 +1,4 @@
+com\systemmonitor\SystemMonitorApplicationTests.class
+com\systemmonitor\controller\ActuatorHealthIntegrationTest.class
+com\systemmonitor\scheduler\StatsSchedulerTest.class
+com\systemmonitor\service\GpuServiceTest.class

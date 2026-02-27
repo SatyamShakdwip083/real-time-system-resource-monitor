@@ -1,0 +1,13 @@
+# Development profile: permissive CORS, more logging
+app:
+  cors:
+    allowed-origins: "*"
+
+logging:
+  level:
+    com.systemmonitor: DEBUG
+
+management:
+  endpoint:
+    health:
+      show-details: always

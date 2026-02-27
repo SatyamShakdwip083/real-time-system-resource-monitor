@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8081:8081"
+    environment:
+      - SERVER_PORT=8081
+      - CORS_ALLOWED_ORIGINS=http://localhost:3000,http://localhost:80,http://127.0.0.1:3000,http://127.0.0.1:80
+    # Optional: LibreHardwareMonitor runs on host; use host.docker.internal on Docker Desktop
+    # - LHM_URL=http://host.docker.internal:8085
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - VITE_WS_URL=
+        - VITE_API_BASE=
+    ports:
+      - "80:80"
+    depends_on:
+      - backend

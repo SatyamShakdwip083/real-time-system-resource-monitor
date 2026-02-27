@@ -1,0 +1,10 @@
+   system-monitor/backend/target/
+   system-monitor/frontend/node_modules/
+   system-monitor/frontend/dist/
+   *.log
+   .idea/
+   .vscode/
+   .DS_Store
+   Thumbs.db
+   *.env
+   .env*

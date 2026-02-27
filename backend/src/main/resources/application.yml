@@ -1,0 +1,51 @@
+# Main config; override with application-{profile}.yml or env vars
+server:
+  port: ${SERVER_PORT:8081}
+
+spring:
+  application:
+    name: system-monitor-backend
+
+logging:
+  level:
+    root: INFO
+    com.systemmonitor: DEBUG
+    org.springframework.messaging: INFO
+    org.springframework.web.socket: WARN
+    oshi.util.platform.windows.WmiQueryHandler: ERROR
+
+# CORS allowed origins (comma-separated). Use * for dev only.
+app:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://127.0.0.1:3000}
+
+# LibreHardwareMonitor remote server URL
+librehardwaremonitor:
+  url: ${LHM_URL:http://localhost:8085}
+
+# Actuator: health and info for load balancers / monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+  info:
+    env:
+      enabled: true
+
+# Build info (set in application-dev.yml or via env)
+info:
+  app:
+    name: ${spring.application.name}
+    version: 1.0.0
+    description: Real-Time System Resource Monitor - Backend
+
+# OpenAPI / Swagger (SpringDoc)
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
